@@ -1,3 +1,3 @@
-You've just deployed your application, a lightweight app with a couple of endpoints exposed.
+You've created your first application and it works perfectly when deployed locally, you have two endpoints /started and /healthz. When run locally /started tells you when the application started and /healthz returns ok.
 
-Sadly it starts to run and then restarts, it does this a number of times until it enters a crashloopbackoff state.
+Satisfied that your application works as expected, its now time to deploy to Kubernetes, only, things don't go according to plan....
