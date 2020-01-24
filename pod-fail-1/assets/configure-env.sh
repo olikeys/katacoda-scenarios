@@ -5,7 +5,7 @@ show_progress()
   local -r delay='0.75'
   local spinstr='\|/-'
   local temp
-  echo -n "Configuring environment, hold tight"
+  echo "Configuring environment, hold tight"
   while true; do 
     sudo grep -i "done" /root/katacoda-background-finished &> /dev/null
     if [[ "$?" -ne 0 ]]; then     
