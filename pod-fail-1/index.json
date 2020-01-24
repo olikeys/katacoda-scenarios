@@ -4,6 +4,11 @@
   "difficulty": "Beginner",
   "time": "15 minutes",
   "details": {
+    "assets":{
+        "pod1": [
+            {"file": "web-svr.yaml", "target": "/root/assets/"}
+	]
+    },
     "steps": [
       {
         "title": "Step 1",
@@ -19,7 +24,8 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "courseData": intro-background.sh
     },
     "finish": {
       "text": "finish.md"
