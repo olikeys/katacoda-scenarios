@@ -26,6 +26,7 @@
     "intro": {
       "text": "intro.md",
       "coureseData": "int-back.sh"
+      "code": "int-fore.sh"
     },
     "finish": {
       "text": "finish.md"
