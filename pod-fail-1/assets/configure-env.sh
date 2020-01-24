@@ -1,6 +1,6 @@
 show_progress()
 {
-  echo -n "Starting"
+  echo -n "Starting\n"
   local -r pid="${1}"
   local -r delay='0.75'
   local spinstr='\|/-'
