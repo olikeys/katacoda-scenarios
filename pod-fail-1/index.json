@@ -25,7 +25,8 @@
     ],
     "intro": {
       "text": "intro.md",
-      "courseData": "intro-background.sh"
+      "coureseData": "int-back.sh",
+      "code": "int-fore.sh"
     },
     "finish": {
       "text": "finish.md"
