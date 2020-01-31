@@ -2,7 +2,7 @@ There are a few ways to correct the liveness probe, we can patch the deployment,
 
 The quickest and easist way to fix this is to run `kubectl edit deployment web-svr`, the danger with this is it leaves you open to editing a lot more than just the problematic liveness probe. An alternative that allows for a little extra control is to patch the deployment.
 
-Create a file called patch-file.yaml and copy the following content into it
+Create a file called patch-file.txt (ideally we'd call it .yaml, but katacoda applies some odd formatting if we do) and copy the following content into it
 
 ```
 spec:
@@ -15,6 +15,9 @@ spec:
             path: /healthz
 ```{{copy}}
 
-Save it and exit back to your terminal. Now run the following `kubectl patch deployment web-svr --patch "$(cat patch-file.yaml)"`. Doing it via this patch file means we are only going to be changing the liveness probe for the web-svr container.
+Save it and exit back to your terminal. Now run the following 
+`kubectl patch deployment web-svr --patch "$(cat patch-file.txt)"`{{copy}}
+
+Doing it via this patch file means we are only going to be changing the liveness probe for the web-svr container.
 
 Congratulations, your pod should now be fit and healthy.
