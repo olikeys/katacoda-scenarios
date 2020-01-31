@@ -13,7 +13,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /healthz
-```
+```{{copy}}
 
 Save it and exit back to your terminal. Now run the following `kubectl patch deployment web-svr --patch "$(cat patch-file.yaml)"`. Doing it via this patch file means we are only going to be changing the liveness probe for the web-svr container.
 
