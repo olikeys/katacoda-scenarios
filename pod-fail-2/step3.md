@@ -1,23 +1,5 @@
-There are a few ways to correct the liveness probe, we can patch the deployment, roll it out again or edit on the fly. In an ideal world we'd update the manifest, get some form of approval for the change and then roll it out. Sadly we don't always live in an ideal world, especially if its 3am and you've got a pod crashing. Its at those times we have to resort to `kubectl`.
+Realistically we have two options for resolution here, one would be to remove the requirement for the secret from the pod deployment, but this is likely to introduce other problems so we won't do that. The second option is to create the missing secret.
 
-The quickest and easist way to fix this is to run `kubectl edit deployment web-svr`, the danger with this is it leaves you open to editing a lot more than just the problematic liveness probe. An alternative that allows for a little extra control is to patch the deployment.
+You've a couple of options on how to create the secret, you could create a yaml spec and apply it via kubectl or you can just use kubectl, which is the option we'll go for this time. `kubectl create secret generic web-svr-secrets --from-literal=super-secret=thisisasecret`. This creates a generic secret called web-svr-secrets, which holds a key super-secret with the value thisisasecret. If you want to see what this looks like once created run `kubectl get secret web-svr-secrets -oyaml` (you should notice that key super-secret has had its value encrypted).
 
-Create a file called patch-file.txt (ideally we'd call it .yaml, but katacoda applies some odd formatting if we do) and copy the following content into it
-
-```
-spec:
-  template:
-    spec:
-      containers:
-      - name: web-svr
-        livenessProbe:
-          httpGet:
-            path: /healthz
-```{{copy}}
-
-Save it and exit back to your terminal. Now run the following 
-`kubectl patch deployment web-svr --patch "$(cat patch-file.txt)"`{{copy}}
-
-Doing it via this patch file means we are only going to be changing the liveness probe for the web-svr container.
-
-Congratulations, your pod should now be fit and healthy.
+Congratulations, now you've created a secret your pod should now be fit and healthy.

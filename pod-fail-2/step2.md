@@ -1,17 +1,9 @@
-There's a few reason why a pod is in a CrashLoopBackoff state, these are generally a failing liveness probe, the application is crashing or a problem with the container command.
+The status `CreateContainerConfigError` is a fairly descriptive message, there's a configuration error. 
 
-For the purpose of this exercise we can assume that the application isn't crashing and that the container command is present and correct, leaving us with a probable issue with a liveness probe. How do we determine if this is the case?
+The first thing to do is run `kubectl describe pod`{{copy}}. There's only one pod in this namespace so we don't need to worry about specifying the full pod name, if there were multiple pods we'd want to run `kubectl get pod xyz`{{copy}} where xyz is the name of your failing pod.
 
-If we have a single failing pod we can simply run `kubectl describe pod xyz` where xyz is the name of the failing pod. If we have more than one you can get all events in the current namespace which should show you a number of faling liveness probes `kubectl get events --sort-by=.metadata.creationTimestamp`
+Here we see we have an event warning with a message `Error: secret "web-svr-secrets" not found`. Although its only a warning it is the reason why the pod is failing to create. If we run `kubectl get deployment -oyaml` we can see that our container is expecting a secret so that we can create an environment variable from it.
 
-This confirms our theory that a livenessprobe is the cause of the issue and its returning a statuscode of 404. Our health check endpoint should be /healthz, lets take a look at what the pod is configured with.
+Does this secret exist in our namespace? `kubectl get secrets`{{copy}} reveals we have a single secret and its not the one that we're after. 
 
-`kubectl get pod -oyaml`, this is going to return the full pod spec, you could use jsonpath output to return just he endpoint path `kubectl get pods -o jsonpath='{.items[*].spec.containers[*].livenessProbe.httpGet.path}'` but its a bit unwieldy and you can achieve a decent result with a simple grep statement `kubectl get pods -o yaml | grep livenessProbe -A5`
-
-The pods liveness probe is configured to check /nonexistentendpoint, its a fair to assume that this doesn't exist and we should change it to /healthz
-
-
-Continue to the next step for instructions on how to do this.
-
-
-
+Go to Step 3 for help in fixing the issue
