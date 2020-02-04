@@ -1,6 +1,6 @@
 {
-  "title": "Failing Pods",
-  "description": "A pod is failing, its up to you to determine why and provide resolution",
+  "title": "BEGINNER: Can't create pod",
+  "description": "Your pod won't deploy, its up to you to determine why and provide resolution",
   "difficulty": "Beginner",
   "time": "15 minutes",
   "details": {
