@@ -1,0 +1,42 @@
+{
+  "title": "Failing Pods",
+  "description": "A pod is failing, its up to you to determine why and provide resolution",
+  "difficulty": "Beginner",
+  "time": "15 minutes",
+  "details": {
+    "assets":{
+        "host01": [
+            {"file": "web-svr.yaml", "target": "/root/assets/"},
+            {"file": "configure-env.sh", "target": "/root/assets/", "chmod": "+x"}
+	]
+    },
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "int-back.sh",
+      "code": "int-fore.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "minikube-running"
+  }
+}
