@@ -1,0 +1,3 @@
+You've created your first application and it works perfectly when deployed locally, you have two endpoints /started and /healthz. When run locally /started tells you when the application started and /healthz returns ok.
+
+Satisfied that your application works as expected, its now time to deploy to Kubernetes, only, things don't go according to plan....
