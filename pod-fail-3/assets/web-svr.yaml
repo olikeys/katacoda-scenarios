@@ -27,12 +27,6 @@ spec:
             port: 8080
           initialDelaySeconds: 3
           periodSeconds: 3
-        env:
-        - name: SECRETS
-          valueFrom:
-            secretKeyRef:
-              name: web-svr-secrets
-              key: super-secret
 ---
 apiVersion: v1
 kind: Service
