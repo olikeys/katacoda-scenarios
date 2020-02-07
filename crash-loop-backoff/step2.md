@@ -14,7 +14,7 @@ Again, there's plenty of ways you can get to the information you need
 `kubectl get pod -oyaml`{{copy}}
 `kubectl get pod -o jsonpath='{.items[*].spec.containers[*].livenessProbe.httpGet.path}'`{{copy}}
 
-Both are going to show you what you need to know, but using jsonpath and the exact option you want returned will save you a fair chunk of scrolling. Personally, I usually get the full yaml spec and chuck a grep in there to drop all the noise `kubectl get pods -oyaml | grep livenessProbe -A5`
+Both are going to show you what you need to know, but using jsonpath and the exact option you want returned will save you a fair chunk of scrolling. Personally, I usually get the full yaml spec and chuck a grep in there to drop all the noise `kubectl get pods -oyaml | grep livenessProbe -A5`{{copy}}
 
 The pods liveness probe is configured to check /nonexistentendpoint, its a fair to assume that this doesn't exist and we should change it to /healthz
 
