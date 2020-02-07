@@ -1,3 +1,3 @@
 #! /bin/bash
-sleep 1; ./assets/configure-env.sh
+sleep 5; ./assets/configure-env.sh
 
