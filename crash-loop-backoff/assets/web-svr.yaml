@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: web-svr
+  name: web-svr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: web-svr
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: web-svr
+    spec:
+      containers:
+      - image: floridakeys/go-srv:v0.4
+        name: web-svr
+        resources: {}
+        livenessProbe:
+          httpGet:
+            path: /nonexistantendpoint
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
+status: {}
