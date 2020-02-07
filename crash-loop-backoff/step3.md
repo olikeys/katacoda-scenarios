@@ -1,4 +1,4 @@
-There are a few ways to correct the liveness probe, we can patch the deployment, roll it out again or edit on the fly. In an ideal world we'd update the manifest, get some form of approval for the change and then roll it out. Sadly we don't always live in an ideal world, especially if its 3am and you've got a pod crashing. Its at those times we have to resort to `kubectl`.
+We can patch the deployment, roll it out again or edit on the fly. In an ideal world we'd update the manifest, get some form of approval for the change and then roll it out. Sadly we don't always live in an ideal world, especially if its 3am and you've got a pod crashing. Its at those times we have to resort to `kubectl`.
 
 The quickest and easist way to fix this is to run `kubectl edit deployment web-svr`, the danger with this is it leaves you open to editing a lot more than just the problematic liveness probe. An alternative that allows for a little extra control is to patch the deployment.
 
