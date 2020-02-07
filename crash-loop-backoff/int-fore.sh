@@ -1,5 +1,2 @@
 #! /bin/bash
-minikube start &
-wait
-
-echo "kube-started" >> /root/katacoda-foreground-finished
+minikube start && echo "kube-started" >> /root/katacoda-foreground-finished
