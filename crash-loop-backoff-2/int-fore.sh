@@ -1,3 +1,2 @@
 #! /bin/bash
-sleep 1; ./assets/configure-env.sh
-
+minikube start && echo "kube-started" >> /root/katacoda-foreground-finished
