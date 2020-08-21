@@ -1,7 +1,7 @@
 #! /bin/bash
 minikube start && echo "kube-started" >> /root/kube-started
 
-while ! grep "kube-start" katacoda-foreground-finished;do sleep 10;done
+while ! grep "kube-start" kube-started;do sleep 10;done
 
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
@@ -16,4 +16,5 @@ spec:
     requests.cpu: "25m"
     requests.memory: 10Mi
 EOF
-kubectl apply -f web-svr.yaml && echo "deploy-complete" /root/katacoda-foreground-finished
+clear
+kubectl apply -f web-svr.yaml && echo "deploy-complete" >> /root/katacoda-foreground-finished
