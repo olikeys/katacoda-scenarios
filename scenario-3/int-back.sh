@@ -14,6 +14,6 @@ spec:
     requests.cpu: "25m"
     requests.memory: 10Mi
 EOF
-kubectl apply -f /root/assets/web-svr.yaml
+kubectl apply -f web-svr.yaml
 
 #echo "done" >> /root/katacoda-background-finished

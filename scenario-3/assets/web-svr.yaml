@@ -20,17 +20,17 @@ spec:
       containers:
       - image: floridakeys/go-srv:v0.4
         name: web-svr
-        resources: {}
+        resources: 
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
         livenessProbe:
           httpGet:
             path: /healthz
             port: 8080
           initialDelaySeconds: 3
           periodSeconds: 3
-        env:
-        - name: SECRETS
-          valueFrom:
-            secretKeyRef:
-              name: web-svr-secrets
-              key: super-secret
 status: {}
