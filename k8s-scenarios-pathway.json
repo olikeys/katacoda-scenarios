@@ -13,7 +13,7 @@
         "description": "You have deployed your app, but unfortunately your container never gets created"
       },
       {
-        "course_id": "2-container-create-error-1",
+        "course_id": "pod-fail-4",
         "title": "Pods forever pending",
         "description": "You've done it again, another app deployed this time your new pod is pending'"
       }
