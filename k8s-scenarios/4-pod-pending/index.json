@@ -6,7 +6,7 @@
   "details": {
     "assets":{
         "host01": [
-            {"file": "web-svr.yaml", "target": "/root/assets/"},
+            {"file": "web-svr.yaml", "target": "/root/assets/"}
 	]
     },
     "steps": [
