@@ -1,0 +1,16 @@
+{
+    "title": "Kubernetes scenarios",
+    "description": "In this course you will be debugging and fixing a couple of real case scenarios.",
+    "courses": [
+      {
+        "course_id": "1-crash-loop-backoff-1",
+        "title": "The CrashloopBackOff",
+        "description": "You have deployed your app, but unfortunately your app never starts."
+      },
+      {
+        "course_id": "2-container-create-error-1",
+        "title": "The CreateContainerConfigError",
+        "description": "You have deployed your app, but unfortunately your container never gets created"
+      }
+    ]
+  }
